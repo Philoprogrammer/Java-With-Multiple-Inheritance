@@ -1,0 +1,56 @@
+
+public class Test {
+	
+	static struct LivingInfo {
+		int age
+	}
+	
+	abstract static class LivingBeing {
+	
+		LivingInfo info
+		
+		public abstract void takeStep ()
+		
+	}
+	
+	static class Person extends LivingBeing {
+	
+		String name
+		
+		public void greetYourself () 
+		{
+			println("Hi, I am ", name)
+		}
+		
+		@Override
+		public void takeStep () 
+		{
+			println("Yay, I just took a step!")
+		}
+	}
+
+	static class Horse extends LivingBeing {
+		
+		public void sayHello () 
+		{
+			println("Neigh")
+		}
+		
+		@Override
+		public void takeStep () 
+		{
+			println("Neigh. Clop.")
+		}
+		
+	}
+	
+	static abstract class Centaur extends Person, Horse {
+		
+		@Override
+		public void takeStep () 
+		{
+			super(Horse)takeStep()
+		}
+	}
+
+}
